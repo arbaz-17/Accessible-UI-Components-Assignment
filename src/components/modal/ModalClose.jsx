@@ -4,7 +4,7 @@ export function ModalClose({ children }) {
   const { close } = useModalContext();
 
   return (
-    <button type="button" onClick={close}>
+    <button className="btn-secondary" type="button" onClick={close}>
       {children}
     </button>
   );

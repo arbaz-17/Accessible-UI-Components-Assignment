@@ -1,5 +1,4 @@
 import { useId, useState } from "react";
-
 import { TabsProvider } from "./TabsProvider";
 import { TabsList } from "./TabsList";
 import { TabsTab } from "./TabsTab";
@@ -7,24 +6,18 @@ import { TabsPanel } from "./TabsPanel";
 
 export function Tabs({ defaultValue, children }) {
   if (!defaultValue) {
-    throw new Error(
-      '<Tabs> requires a "defaultValue".'
-    );
+    throw new Error('<Tabs> requires a "defaultValue".');
   }
 
   const [activeValue, setActiveValue] = useState(defaultValue);
-
   const rootId = useId();
 
   const selectTab = (value) => {
     setActiveValue(value);
   };
 
-  const getTabId = (value) =>
-    `${rootId}-tab-${value}`;
-
-  const getPanelId = (value) =>
-    `${rootId}-panel-${value}`;
+  const getTabId = (value) => `${rootId}-tab-${value}`;
+  const getPanelId = (value) => `${rootId}-panel-${value}`;
 
   const contextValue = {
     activeValue,
@@ -35,7 +28,7 @@ export function Tabs({ defaultValue, children }) {
 
   return (
     <TabsProvider value={contextValue}>
-      <div>{children}</div>
+      <div className="tabs-root">{children}</div>
     </TabsProvider>
   );
 }

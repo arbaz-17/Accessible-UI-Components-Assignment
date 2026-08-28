@@ -9,7 +9,7 @@ export function AccordionTrigger({ children }) {
     if (!accordionRef.current) return;
 
     const triggers = Array.from(
-      accordionRef.current.querySelectorAll("button[data-accordion-trigger]")
+      accordionRef.current.querySelectorAll("button[data-accordion-trigger]"),
     );
 
     if (triggers.length === 0) return;
@@ -18,8 +18,10 @@ export function AccordionTrigger({ children }) {
     if (currentIndex === -1) return;
 
     let nextIndex;
-    if (event.key === "ArrowDown") nextIndex = (currentIndex + 1) % triggers.length;
-    if (event.key === "ArrowUp") nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
+    if (event.key === "ArrowDown")
+      nextIndex = (currentIndex + 1) % triggers.length;
+    if (event.key === "ArrowUp")
+      nextIndex = (currentIndex - 1 + triggers.length) % triggers.length;
     if (event.key === "Home") nextIndex = 0;
     if (event.key === "End") nextIndex = triggers.length - 1;
 
@@ -42,7 +44,6 @@ export function AccordionTrigger({ children }) {
         onKeyDown={handleKeyDown}
       >
         {children}
-        {/* Animated Chevron Icon */}
         <svg
           className="accordion-chevron"
           width="20"

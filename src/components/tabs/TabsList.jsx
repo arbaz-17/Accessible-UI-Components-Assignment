@@ -1,5 +1,4 @@
 import { useRef } from "react";
-
 import { TabsListContext } from "./TabsListContext";
 
 export function TabsList({ children }) {
@@ -15,6 +14,7 @@ export function TabsList({ children }) {
         ref={listRef}
         role="tablist"
         aria-orientation="horizontal"
+        className="tabs-list"
       >
         {children}
       </div>

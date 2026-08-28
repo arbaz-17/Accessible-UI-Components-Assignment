@@ -1,5 +1,4 @@
 import { useRef, useState } from "react";
-
 import { AccordionProvider } from "./AccordionProvider";
 import { AccordionItem } from "./AccordionItem";
 import { AccordionTrigger } from "./AccordionTrigger";
@@ -22,28 +21,16 @@ export function Accordion({
 
   const [openItems, setOpenItems] = useState(() => {
     if (type === "multiple") {
-      if (defaultValue === null) {
-        return [];
-      }
-
+      if (defaultValue === null) return [];
       if (!Array.isArray(defaultValue)) {
-        throw new Error(
-          'Accordion "defaultValue" must be an array when type is "multiple".'
-        );
+        throw new Error('Accordion "defaultValue" must be an array when type is "multiple".');
       }
-
       return defaultValue;
     }
 
-    if (
-      defaultValue !== null &&
-      typeof defaultValue !== "string"
-    ) {
-      throw new Error(
-        'Accordion "defaultValue" must be a string or null when type is "single".'
-      );
+    if (defaultValue !== null && typeof defaultValue !== "string") {
+      throw new Error('Accordion "defaultValue" must be a string or null when type is "single".');
     }
-
     return defaultValue;
   });
 
@@ -53,23 +40,15 @@ export function Accordion({
         if (currentItems.includes(value)) {
           return currentItems.filter((item) => item !== value);
         }
-
         return [...currentItems, value];
       });
-
       return;
     }
-
-    setOpenItems((currentItem) =>
-      currentItem === value ? null : value
-    );
+    setOpenItems((currentItem) => (currentItem === value ? null : value));
   };
 
   const isItemOpen = (value) => {
-    if (type === "multiple") {
-      return openItems.includes(value);
-    }
-
+    if (type === "multiple") return openItems.includes(value);
     return openItems === value;
   };
 
@@ -83,7 +62,7 @@ export function Accordion({
 
   return (
     <AccordionProvider value={contextValue}>
-      <div ref={accordionRef}>
+      <div ref={accordionRef} className="accordion-root">
         {children}
       </div>
     </AccordionProvider>

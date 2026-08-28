@@ -1,5 +1,7 @@
 import { Modal } from "./components/modal/Modal";
 import { Accordion } from "./components/accordion/Accordion";
+import { Tabs } from "./components/tabs/Tabs";
+
 
 function App() {
   return (
@@ -66,6 +68,36 @@ function App() {
           </Accordion.Panel>
         </Accordion.Item>
       </Accordion>
+      <Tabs defaultValue="overview">
+  <Tabs.List>
+    <Tabs.Tab value="overview">
+      Overview
+    </Tabs.Tab>
+
+    <Tabs.Tab value="settings">
+      Settings
+    </Tabs.Tab>
+
+    <Tabs.Tab value="activity">
+      Activity
+    </Tabs.Tab>
+  </Tabs.List>
+
+  <Tabs.Panel value="overview">
+    <h2>Overview</h2>
+    <p>Overview content.</p>
+  </Tabs.Panel>
+
+  <Tabs.Panel value="settings">
+    <h2>Settings</h2>
+    <p>Settings content.</p>
+  </Tabs.Panel>
+
+  <Tabs.Panel value="activity">
+    <h2>Activity</h2>
+    <p>Activity content.</p>
+  </Tabs.Panel>
+</Tabs>
     </main>
   );
 }

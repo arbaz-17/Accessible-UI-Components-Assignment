@@ -1,12 +1,31 @@
-import './App.css'
+import { Modal } from "./components/modal/Modal";
 
 function App() {
   return (
-    <main>
-      <h1>Accessible UI Components</h1>
-      <p>Week 6 — Advanced React & Component Patterns</p>
-    </main>
-  )
+    <div>
+      <h1>Week 6 Assignment</h1>
+
+      <Modal>
+        <Modal.Trigger>
+          Open Modal
+        </Modal.Trigger>
+
+        <Modal.Content>
+          <Modal.Title>
+            Delete Project?
+          </Modal.Title>
+
+          <Modal.Description>
+            This action cannot be undone.
+          </Modal.Description>
+
+          <Modal.Close>
+            Cancel
+          </Modal.Close>
+        </Modal.Content>
+      </Modal>
+    </div>
+  );
 }
 
-export default App
+export default App;

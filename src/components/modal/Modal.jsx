@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useId, useRef, useState } from "react";
 
 import { ModalProvider } from "./ModalProvider";
 import { ModalTrigger } from "./ModalTrigger";
@@ -10,7 +10,13 @@ import { ModalClose } from "./ModalClose";
 export function Modal({ children }) {
   const [isOpen, setIsOpen] = useState(false);
 
+  const titleId = useId();
+  const descriptionId = useId();
+
+  const previousActiveElementRef = useRef(null);
+
   const open = () => {
+    previousActiveElementRef.current = document.activeElement;
     setIsOpen(true);
   };
 
@@ -22,6 +28,9 @@ export function Modal({ children }) {
     isOpen,
     open,
     close,
+    titleId,
+    descriptionId,
+    previousActiveElementRef,
   };
 
   return (

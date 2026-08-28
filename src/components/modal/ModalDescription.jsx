@@ -1,3 +1,7 @@
+import { useModalContext } from "./useModalContext";
+
 export function ModalDescription({ children }) {
-  return <p>{children}</p>;
+  const { descriptionId } = useModalContext();
+
+  return <p id={descriptionId}>{children}</p>;
 }

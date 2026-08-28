@@ -2,7 +2,7 @@ import { Modal } from "./components/modal/Modal";
 
 function App() {
   return (
-    <div>
+    <main>
       <h1>Week 6 Assignment</h1>
 
       <Modal>
@@ -19,12 +19,16 @@ function App() {
             This action cannot be undone.
           </Modal.Description>
 
+          <button type="button">
+            Confirm Delete
+          </button>
+
           <Modal.Close>
             Cancel
           </Modal.Close>
         </Modal.Content>
       </Modal>
-    </div>
+    </main>
   );
 }
 

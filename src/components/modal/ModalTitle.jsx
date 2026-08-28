@@ -1,3 +1,7 @@
+import { useModalContext } from "./useModalContext";
+
 export function ModalTitle({ children }) {
-  return <h2>{children}</h2>;
+  const { titleId } = useModalContext();
+
+  return <h2 id={titleId}>{children}</h2>;
 }

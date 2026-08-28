@@ -94,8 +94,6 @@ Open the local URL provided by Vite in your browser.
 
 ## Demo
 
-Live demo:
-
-[Demo link will be added here](#)
+[Accessible UI Components Assignment - Week 6](https://arbaz-17.github.io/Accessible-UI-Components-Assignment/)
 
 
